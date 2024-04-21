@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>UK Map Search</title>
+</head>
+<body>
+    <h1>Search UK Locations</h1>
+    <form method="post">
+        <label for="search_type">Choose a search type:</label>
+        <select name="search_type" id="search_type">
+            <option value="postcode">Postcode</option>
+            <option value="place_name">Place Name</option>
+            <option value="coordinates">Coordinates</option>
+        </select>
+        <label for="search_query">Search Query:</label>
+        <input type="text" id="search_query" name="search_query" required>
+        <button type="submit">Search</button>
+    </form>
+    <div id="map" style="height: 600px;">
+        {{ map_html|safe }}
+    </div>
+</body>
+</html>
