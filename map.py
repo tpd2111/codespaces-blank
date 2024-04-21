@@ -27,7 +27,7 @@ def create_os_map(api_key, center=(54.5, -4), zoom_start=6):
     return m
 
 # Replace 'your_api_key_here' with your actual Ordnance Survey API key
-api_key = 'your_api_key_here'
+api_key = 'aFVNHAYfAZgEsTb5g26B4v2JcVRsCzjl'
 uk_os_map = create_os_map(api_key)
 
 # Save the map to an HTML file
