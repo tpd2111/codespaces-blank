@@ -25,7 +25,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_3d3301445f6f1afc3aed216e6248b6f7 {
+                #map_aea4981b44804d0c9b65b793a9211a98 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -39,14 +39,14 @@
 <body>
     
     
-            <div class="folium-map" id="map_3d3301445f6f1afc3aed216e6248b6f7" ></div>
+            <div class="folium-map" id="map_aea4981b44804d0c9b65b793a9211a98" ></div>
         
 </body>
 <script>
     
     
-            var map_3d3301445f6f1afc3aed216e6248b6f7 = L.map(
-                "map_3d3301445f6f1afc3aed216e6248b6f7",
+            var map_aea4981b44804d0c9b65b793a9211a98 = L.map(
+                "map_aea4981b44804d0c9b65b793a9211a98",
                 {
                     center: [54.5, -4.0],
                     crs: L.CRS.EPSG3857,
@@ -60,48 +60,62 @@
 
         
     
-            var tile_layer_a35abd394050d66839eeffb83e7212d8 = L.tileLayer(
-                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
-                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
-            );
-        
-    
-            tile_layer_a35abd394050d66839eeffb83e7212d8.addTo(map_3d3301445f6f1afc3aed216e6248b6f7);
-        
-    
-            var tile_layer_b19140b416e98c7b22c22a26e962e2a1 = L.tileLayer(
+            var tile_layer_ddc74d1eaee30dd5ffc109501fea47c4 = L.tileLayer(
                 "https://api.os.uk/maps/raster/v1/zxy/Light_3857/{z}/{x}/{y}.png?key=aFVNHAYfAZgEsTb5g26B4v2JcVRsCzjl",
                 {"attribution": "Ordnance Survey", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
             );
         
     
-            tile_layer_b19140b416e98c7b22c22a26e962e2a1.addTo(map_3d3301445f6f1afc3aed216e6248b6f7);
+            tile_layer_ddc74d1eaee30dd5ffc109501fea47c4.addTo(map_aea4981b44804d0c9b65b793a9211a98);
         
     
-            var tile_layer_509bcffe32955c8efc7ebaa6bf9592b5 = L.tileLayer(
+            var tile_layer_502f21dcdc6fa46481eb2c1af404ba59 = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
             );
         
     
-            tile_layer_509bcffe32955c8efc7ebaa6bf9592b5.addTo(map_3d3301445f6f1afc3aed216e6248b6f7);
+            tile_layer_502f21dcdc6fa46481eb2c1af404ba59.addTo(map_aea4981b44804d0c9b65b793a9211a98);
         
     
-            var layer_control_9e10364e9cf4db5519b256e3aed80af1_layers = {
+            var layer_control_685b2484383ea95a5986f6b90e1bbbde_layers = {
                 base_layers : {
-                    "openstreetmap" : tile_layer_a35abd394050d66839eeffb83e7212d8,
-                    "Ordnance Survey Map" : tile_layer_b19140b416e98c7b22c22a26e962e2a1,
-                    "OpenStreetMap" : tile_layer_509bcffe32955c8efc7ebaa6bf9592b5,
+                    "Ordnance Survey Map" : tile_layer_ddc74d1eaee30dd5ffc109501fea47c4,
+                    "OpenStreetMap" : tile_layer_502f21dcdc6fa46481eb2c1af404ba59,
                 },
                 overlays :  {
                 },
             };
-            let layer_control_9e10364e9cf4db5519b256e3aed80af1 = L.control.layers(
-                layer_control_9e10364e9cf4db5519b256e3aed80af1_layers.base_layers,
-                layer_control_9e10364e9cf4db5519b256e3aed80af1_layers.overlays,
+            let layer_control_685b2484383ea95a5986f6b90e1bbbde = L.control.layers(
+                layer_control_685b2484383ea95a5986f6b90e1bbbde_layers.base_layers,
+                layer_control_685b2484383ea95a5986f6b90e1bbbde_layers.overlays,
                 {"autoZIndex": true, "collapsed": true, "position": "topright"}
-            ).addTo(map_3d3301445f6f1afc3aed216e6248b6f7);
+            ).addTo(map_aea4981b44804d0c9b65b793a9211a98);
 
         
 </script>
 </html>
+    <form>
+        <input type="text" id="searchBox" placeholder="Enter a location">
+        <button type="button" onclick="searchLocation()">Search</button>
+    </form>
+    <script>
+    function searchLocation() {
+        var searchText = document.getElementById('searchBox').value;
+        var url = "https://api.os.uk/search/names/v1/find?query=" + encodeURIComponent(searchText) + "&key=aFVNHAYfAZgEsTb5g26B4v2JcVRsCzjl";
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                if(data.results && data.results.length > 0) {
+                    var loc = data.results[0].geometry.coordinates;
+                    var map = L.map('map').setView([loc[1], loc[0]], 10);
+                    L.marker([loc[1], loc[0]]).addTo(map).bindPopup(searchText).openPopup();
+                } else {
+                    alert('Location not found.');
+                }
+            })
+            .catch(error => alert('Error: ' + error));
+    }
+    </script>
+    
