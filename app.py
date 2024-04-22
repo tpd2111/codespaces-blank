@@ -21,7 +21,7 @@ def index():
                 folium.Marker([lat, lon], tooltip='Click for more', popup=postcode).add_to(folium_map)
                 # Center the map on the searched postcode
                 folium_map.location = [lat, lon]
-                folium_map.zoom_start = 13
+                folium_map.zoom_start = 16
 
     # Render the map in the HTML template
     folium_map = folium_map._repr_html_()
