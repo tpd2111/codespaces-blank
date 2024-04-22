@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UK Postcode Map</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .search-box {
+            display: flex;
+            align-items: center;
+        }
+        .search-box input {
+            padding: 8px;
+            margin-right: 10px;
+            border: none;
+            border-radius: 4px;
+        }
+        .search-box button {
+            padding: 8px 16px;
+            background-color: #006BDD;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .search-box button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>UK Postcode Locator</h1>
+        <form class="search-box" method="post">
+            <input type="text" name="postcode" placeholder="Enter UK Postcode" required>
+            <button type="submit">Search</button>
+        </form>
+    </div>
+    {{ folium_map|safe }}
+</body>
+</html>
