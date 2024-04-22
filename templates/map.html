@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UK Postcode Map</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        form {
+            display: flex;
+            align-items: center;
+        }
+        input[type="text"] {
+            padding: 8px;
+            margin-right: 10px;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            width: 300px;
+        }
+        button {
+            padding: 8px 16px;
+            background-color: #006BDD;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .error {
+            color: red;
+            padding: 10px 20px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+    $(function() {
+        $("#postcodeInput").autocomplete({
+            source: function(request, response) {
+                $.getJSON("/autocomplete", { term: request.term }, response);
+            },
+            minLength: 2,
+            select: function(event, ui) {
+                $(this).val(ui.item.label);
+                return false;
+            }
+        });
+    });
+    </script>
+</head>
+<body>
+    <div class="header">
+        <h1>UK Postcode Locator</h1>
+        <form method="post">
+            <input type="text" name="input" id="postcodeInput" placeholder="Enter UK Postcode or Easting,Northing" required>
+            <button type="submit">Search</button>
+        </form>
+    </div>
+    {{ folium_map|safe }}
+    {% if error %}
+        <div class="error">{{ error }}</div>
+    {% endif %}
+</body>
+</html>
