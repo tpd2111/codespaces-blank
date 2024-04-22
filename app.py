@@ -8,7 +8,7 @@ app = Flask(__name__)
 def index():
     # Set a default location (Center of the UK)
     start_coords = (54.2361, -4.5481)
-    folium_map = folium.Map(location=start_coords, zoom_start=6)
+    folium_map = folium.Map(location=start_coords, zoom_start=4)
 
     if request.method == 'POST':
         postcode = request.form['postcode']
